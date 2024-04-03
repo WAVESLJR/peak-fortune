@@ -151,6 +151,7 @@
         font-size: 50px;
         border-radius: 10px;
         border-width: 2px;
+        border-style: solid;
         color: var(--color-white);
         border-color: var(--color-white);
     }
