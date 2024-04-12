@@ -52,7 +52,7 @@
             </p>
         </li>
         <li>
-            <strong>Bonus for Option C:</strong>
+            <strong>Bonus for Option {optionC}:</strong>
             <p>
                 Revealing <em>{optionC}</em> adds a bonus to the total number of
                 <em>{optionA}</em> revealed.
