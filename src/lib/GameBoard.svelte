@@ -56,8 +56,8 @@
         const goodValue = 10;
         const supriseCount = list.filter(i => i === suprise).length
         const allSupriseCount = opts.filter(i => i === suprise).length
-        const remainSupriseCount = allSupriseCount - supriseCount
-        const stageTotal = (list.filter(i => i === good).length * goodValue) * (remainSupriseCount == 0 ? supriseCount + 1 : allSupriseCount * (supriseCount - allSupriseCount))
+        const remainSupriseCount =  supriseCount - allSupriseCount
+        const stageTotal = (list.filter(i => i === good).length * goodValue) * (remainSupriseCount == 0 ? supriseCount + 1 : remainSupriseCount)
         let profile = get(record)
 
         profile.attempts += 1
