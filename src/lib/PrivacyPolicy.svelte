@@ -1,8 +1,8 @@
 <script lang="ts">
     // Define dynamic variables
-    export let websiteName: string = "Your Website Name";
-    export let websiteUrl: string = "Your Website URL";
-    export let contactEmail: string = "contact@example.com";
+    export let websiteName: string = "Peak-Fortune Gaming";
+    export let websiteUrl: string = "https://peak-fortune.pages.dev";
+    export let contactEmail: string = "waves.tagent@gmail.com";
 </script>
 
 <div>
