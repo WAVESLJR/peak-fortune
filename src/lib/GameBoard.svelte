@@ -1,21 +1,21 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { getContext, onMount } from "svelte";
     import Flipper from "./Flipper.svelte";
     import { discoverd, record } from "../hook/store";
     import { get } from "svelte/store";
 
 
-    const placeholder: string = '🎁'
-    const good: string = '🧧'
-    const bad: string = '🧨'
-    const star: string = '🐲'
+    const placeholder: string = getContext('placeholder')
+    const good: string = getContext('good')
+    const bad: string = getContext('bad')
+    const suprise: string = getContext('suprise')
     const totalCount = 25;
     const badCount = 3;
-    const maxStarCount = 3;
+    const maxSupriseCount = 3;
 
     let badOpts: string[]
     let goodOpts: string[]
-    let starOpts: string[]
+    let supriseOpts: string[]
     let opts: string[]
     let gameOver: boolean = false
 
@@ -31,13 +31,13 @@
 
     const onInit = () => {
 
-        let starCount: number = Math.floor(Math.random() * maxStarCount);
-        let goodCount: number = totalCount - starCount - badCount;
+        let supriseCount: number = Math.floor(Math.random() * maxSupriseCount);
+        let goodCount: number = totalCount - supriseCount - badCount;
 
         badOpts = new Array(badCount).fill(bad)
         goodOpts = new Array(goodCount).fill(good)
-        starOpts = new Array(starCount).fill(star)
-        opts = [...goodOpts, ...badOpts, ...starOpts]
+        supriseOpts = new Array(supriseCount).fill(suprise)
+        opts = [...goodOpts, ...badOpts, ...supriseOpts]
 
        
         onShuffle(opts)
@@ -54,10 +54,10 @@
         gameOver = true
         const list = get(discoverd)
         const goodValue = 10;
-        const starCount = list.filter(i => i === star).length
-        const allStarCount = opts.filter(i => i === star).length
-        const remainStarCount = allStarCount - starCount
-        const stageTotal = (list.filter(i => i === good).length * goodValue) * (remainStarCount == 0 ? starCount + 1 : allStarCount * (starCount - allStarCount))
+        const supriseCount = list.filter(i => i === suprise).length
+        const allSupriseCount = opts.filter(i => i === suprise).length
+        const remainSupriseCount = allSupriseCount - supriseCount
+        const stageTotal = (list.filter(i => i === good).length * goodValue) * (remainSupriseCount == 0 ? supriseCount + 1 : allSupriseCount * (supriseCount - allSupriseCount))
         let profile = get(record)
 
         profile.attempts += 1
@@ -89,7 +89,7 @@
     </section>
     <section class="game-nav">
         { #if gameOver }
-            <button class="restart" on:click={onInit}>Restart</button>
+            <button class="resupriset" on:click={onInit}>Restart</button>
         { :else if !gameOver && $discoverd.length > 0 }
             <button class="confirm" on:click={onConfirm}>Confirm</button>
         { :else }
@@ -156,11 +156,11 @@
         border-color: var(--color-white);
     }
 
-    button.restart {
+    button.resupriset {
         background-color: var(--color-blue);
     }
 
-    button.restart:hover {
+    button.resupriset:hover {
         color: var(--color-blue);
         border-color: var(--color-blue);
         background-color: var(--color-white);

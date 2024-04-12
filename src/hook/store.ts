@@ -15,3 +15,4 @@ export let record: Writable<Record> = writable({
     attempts: 0,
     remain: 30
  })
+
