@@ -3,9 +3,9 @@
 
     // Declare variables for dynamic options
     let placeholder: string = ` ${getContext('placeholder')} `
-    let optionA: sting = ` ${getContext('good')} `;
-    let optionB: sting = ` ${getContext('bad')} `;
-    let optionC: sting = ` ${getContext('suprise')} `;
+    let optionA: string = ` ${getContext('good')} `;
+    let optionB: string = ` ${getContext('bad')} `;
+    let optionC: string = ` ${getContext('suprise')} `;
 </script>
 
 <div>
